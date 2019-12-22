@@ -5,15 +5,17 @@ use utilidades\Log;
 include_once "utilidades/log.inc";
 include_once "twitch/twitch.php";
 try{
-   $datosUsuario=Token::usuarioID();
-   
-   if($datosUsuario===null){
-      return;
+   if(twitch\Peticion::procesar()===null){
+      return null;
    }
-   Log::debug($datosUsuario["id"]);
-}catch (\Exception $ex){
-   echo $ex->getMessage();
+}catch(Exception $ex){
+   echo "{\"error\":\"".$ex->getMessage()."\"}";
+   header("HTTP/1.1 400 KO");
 }
+
+
+
+
 
 //echo "#FF0000";
 
