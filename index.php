@@ -15,7 +15,7 @@ try{
    echo $ex->getMessage();
 }
 
-echo "#FF0000";
+//echo "#FF0000";
 
 
 
